@@ -1,0 +1,26 @@
+{
+  "name": "PrivIQ",
+  "version": "1.0",
+  "description": "PrivIQ Privacy Tracker",
+  "permissions": ["declarativeContent","storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/priv-IQ16.png",
+      "32": "images/priv-IQ32.png",
+      "48": "images/priv-IQ48.png",
+      "128": "images/priv-IQ128.png"
+    },
+    "icons": {
+      "16": "images/priv-IQ16.png",
+      "32": "images/priv-IQ32.png",
+      "48": "images/priv-IQ48.png",
+      "128": "images/priv-IQ128.png"
+    }
+  },
+  "manifest_version": 2
+}
