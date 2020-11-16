@@ -2,7 +2,7 @@
   "name": "PrivIQ",
   "version": "1.0",
   "description": "PrivIQ Privacy Tracker",
-  "permissions": ["declarativeContent","storage"],
+  "permissions": ["declarativeContent","tabs","storage"],
   "background": {
     "scripts": ["background.js"],
     "persistent": false
