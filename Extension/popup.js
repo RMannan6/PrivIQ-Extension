@@ -48,7 +48,7 @@ axios.get(url)
     const html = response.data;
 	const $ = cheerio.load(html);
 	// console.log(html);
-	$('div').each(function(i, elem) {
+	$('div, p, h1').each(function(i, elem) {
 		data = $(this).text().trim();
 		console.log($(this).find('p').text().trim());
 	});
