@@ -53,6 +53,7 @@ axios.get(url)
 		console.log($(this).find('p').text().trim());
 	});
   })
+  alert(data)
   .catch(error => {
     console.log(error);
   })
