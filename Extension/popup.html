@@ -4,13 +4,53 @@
     <style>
       button {
         height: 30px;
-        width: 30px;
+        width: 100px;
         outline: none;
+        text-align: center;
+      }
+      h1, img, p {
+        text-align: center
+      }
+      .message {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #3c763d;
+        background-color: #dff0d8;
+      }
+      .warning {
+        padding: 15px;
+        border: 1px solid #d6e9c6;
+        border-radius: 4px;
+        color: #0e0c0c;
+        background-color: #dcd4a2;
+      }
+      table {
+        width: 100%;
+        table-layout: fixed;
+        border : 1px;
+      }
+      th {
+        border: 1px solid rgb(50, 172, 25);
+        height: 50px;
+        padding: 15px;
       }
     </style>
   </head>
   <body>
-    <button id="changeColor"></button>
+    <h1>PrivIQ</h1>
+    <!-- <a href="./main/index.html"> </a>-->
+    <img src="logo.png" alt="PrivIQ logo">
+    <!-- <button id="changeColor"></button> -->
+
+    <p>Your privacy is in your control</p>
+    <div class="warning"></div>
+
+    <!-- <input type="file" id="myFile"> -->
+
+    <button id="privacy">Read privacy</button>
+    <div id="returnedObject"></div>
+
     <script src="popup.js"></script>
   </body>
 </html>
