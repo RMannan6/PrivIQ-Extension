@@ -5,28 +5,21 @@
   "permissions": ["declarativeContent","tabs","storage"],
   "background": {
     "scripts": ["background.js"],
-    "content_scripts": [
-      {
-        "js": [
-          "https://cdnjs.cloudflare.com/ajax/libs/cheerio/1.0.0-rc.3/lib/cheerio.min.js",
-          "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"]
-      }
-    ],
     "persistent": false
   },
   "page_action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "images/priv-IQ16.png",
-      "32": "images/priv-IQ32.png",
-      "48": "images/priv-IQ48.png",
-      "128": "images/priv-IQ128.png"
+      "16": "icons/priv-IQ16.png",
+      "32": "icons/priv-IQ32.png",
+      "48": "icons/priv-IQ48.png",
+      "128": "icons/priv-IQ128.png"
     },
     "icons": {
-      "16": "images/priv-IQ16.png",
-      "32": "images/priv-IQ32.png",
-      "48": "images/priv-IQ48.png",
-      "128": "images/priv-IQ128.png"
+      "16": "icons/priv-IQ16.png",
+      "32": "icons/priv-IQ32.png",
+      "48": "icons/priv-IQ48.png",
+      "128": "icons/priv-IQ128.png"
     }
   },
   "manifest_version": 2
