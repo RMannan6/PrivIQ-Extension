@@ -11,7 +11,7 @@ chrome.tabs.query({
   active: true,
   lastFocusedWindow: true
 }, function (tabs) {
-  
+
   // Analyze tab's url
   var url = tabs[0].url;
 
@@ -34,15 +34,15 @@ document.getElementById("privacy").addEventListener("click", Analyze);
 
 // Crawler code
 function Analyze() {
-  if(clickCount<1){
-  let div = document.createElement('div');
-  div.className = "message"; // 2. Set its class to "message"
+  if (clickCount < 1) {
+    let div = document.createElement('div');
+    div.className = "message"; // 2. Set its class to "message"
 
-  // 3. Fill it with the content
-  div.innerHTML = "<strong>Great!</strong> You've checked the privacy of " + parser.hostname; // domain
+    // 3. Fill it with the content
+    div.innerHTML = "<strong>Great!</strong> You've checked the privacy of " + parser.hostname; // domain
 
-  document.body.append(div);
-  clickCount += 1
+    document.body.append(div);
+    clickCount += 1
   }
   // call analyzeText function
   analyzeText();
@@ -125,18 +125,18 @@ function evaluateKeyPhrases(data) {
     objectOutput.innerHTML +=
       "<h1 class='match-response false'>This site may collect your data</h1>";
   }
-
-  // output phrases for web app demo, this can be removed it just 
-  // outputs the returned phrases
-  objectOutput.innerHTML += "<ul>";
-  keyPhrasesArray.forEach(
-    element => (objectOutput.innerHTML += "<li>" + element + "</li>")
-  );
-  objectOutput.innerHTML += "</ul>";
-  objectOutput.innerHTML += "<h2>Privacy Terms</h2>";
-  objectOutput.innerHTML += "<ul>";
-  privacyTerms.forEach(
-    element => (objectOutput.innerHTML += "<li>" + element + "</li>")
-  );
-  objectOutput.innerHTML += "</ul>";
 }
+function getCrawlerResponse() {
+  fetch('https://joedag32.com/sandbox/scrape-test.php')
+    .then(function (response) {
+      // The API call was successful!
+      return response.json();
+    }).then(function (data) {
+      // This is the JSON from our response
+      console.log(data);
+    }).catch(function (err) {
+      // There was an error
+      console.warn('Something went wrong.', err);
+    });
+}
+getCrawlerResponse();
