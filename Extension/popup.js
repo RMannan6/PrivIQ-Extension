@@ -5,7 +5,6 @@
 'use strict';
 
 var parser = document.createElement('a');
-var clickCount = 0;
 
 chrome.tabs.query({
   active: true,
@@ -20,21 +19,22 @@ chrome.tabs.query({
     var scheme = parser.protocol; // 1. Get protocol
     let div1 = document.createElement('div');
     div1.className = "warning"; // 2. Set its class to "message"
-
+    div1.id = "warning"
     // 3. Set connection message
     div1.innerHTML = "<strong>Is the connection secure?</strong>\nThe site uses " + scheme.substring(0, scheme.length - 1) + "!";
 
     document.body.append(div1);
-
   }
-
 });
 
 document.getElementById("privacy").addEventListener("click", Analyze);
 
 // Crawler code
 function Analyze() {
-  if(clickCount<1){
+  var pb = document.getElementById("privacy");
+  if (pb){
+    pb.style.display = "none";
+  }
   let div = document.createElement('div');
   div.className = "message"; // 2. Set its class to "message"
 
@@ -42,8 +42,8 @@ function Analyze() {
   div.innerHTML = "<strong>Great!</strong> You've checked the privacy of " + parser.hostname; // domain
 
   document.body.append(div);
-  clickCount += 1
-  }
+  document.getElementById("warning").style.display = "none";
+
   // call analyzeText function
   analyzeText();
 }
@@ -120,23 +120,9 @@ function evaluateKeyPhrases(data) {
   });
   if (privacyTermMatches > 3) {
     objectOutput.innerHTML +=
-      "<h1 class='match-response true'>This site collects your data</h1>";
+      "<h1 class='match-response true'>This site will collect your data</h1>";
   } else {
     objectOutput.innerHTML +=
       "<h1 class='match-response false'>This site may collect your data</h1>";
   }
-
-  // output phrases for web app demo, this can be removed it just 
-  // outputs the returned phrases
-  objectOutput.innerHTML += "<ul>";
-  keyPhrasesArray.forEach(
-    element => (objectOutput.innerHTML += "<li>" + element + "</li>")
-  );
-  objectOutput.innerHTML += "</ul>";
-  objectOutput.innerHTML += "<h2>Privacy Terms</h2>";
-  objectOutput.innerHTML += "<ul>";
-  privacyTerms.forEach(
-    element => (objectOutput.innerHTML += "<li>" + element + "</li>")
-  );
-  objectOutput.innerHTML += "</ul>";
 }
