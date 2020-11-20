@@ -126,8 +126,11 @@ function evaluateKeyPhrases(data) {
       "<h1 class='match-response false'>This site may collect your data</h1>";
   }
 }
+
+// request to php crawler goes here
+const phpCrawlerUrl = 'https://joedag32.com/sandbox/scrape-test.php?new';
 function getCrawlerResponse() {
-  fetch('https://joedag32.com/sandbox/scrape-test.php')
+  fetch(phpCrawlerUrl, {cache: "no-store"})
     .then(function (response) {
       // The API call was successful!
       return response.json();
